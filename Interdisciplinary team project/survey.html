@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beòhus</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <header>
+        <img src="images/woodwork.png" alt="header img">
+        <h1>Beòhus</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="survey.html">Survey Page</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Beòhus</h2>
+            <p>
+                Which Beohus is right for you? 
+                <br>
+                Take the survey!
+            <p>
+
+            <p1>
+                
+                <form id="recommendationForm">
+                    <label for="usage">How would you describe your Beohus' purpose?</label>
+                    <select id="usage" name="usage">
+                      <option value="choose"></option>
+                      <option value="personal">Personal</option>
+                      <option value="business">Business Owner</option>
+                    </select>
+                
+                    <br>
+
+                    <label for="persons">How many person(s) would you be looking to accomodate at any given time?</label>
+                    <select id="persons" name="persons">
+                        <option value="choose"></option>
+                      <option value="four">Four or less</option>
+                      <option value="fiveplus">Between 5 and 10</option>
+                      <option value="tenplus">More than 10</option>
+                    </select>
+                
+                    <br>
+
+                    <label for="budget">What is your budget range?</label>
+                    <select id="budget" name="budget">
+                        <option value="choose"></option>
+                      <option value="small">£100,000</option>
+                      <option value="medium">£150,000</option>
+                      <option value="large">£200,000+</option>
+                    </select>
+                
+                    <br>
+
+                    <button type="button" onclick="recommend()">Get Recommendation</button>
+                
+                    <div id="recommendation" style="display: none;">
+                      <h2>Your Recommended Choice:</h2>
+                      <p id="recommendationText"></p>
+                    </div>
+                  </form>
+
+            </p1>
+
+
+            <script>
+                function recommend() {
+                  var usage = document.getElementById('usage').value;
+                  var persons = document.getElementById('persons').value;
+                  var budget = document.getElementById('budget').value;
+            
+                  // You can customize the recommendation logic based on user input
+                  var recommendationText = "Based on your input, you are recommended the: ";
+            
+                  // Simple recommendation logic (customize as needed)
+                  if (usage === 'personal' && persons === 'four' || budget === 'small') {
+                    recommendationText += "36m^2 Beohus (small)";
+                  } else if (persons === 'tenplus' && budget === 'large') {
+                    recommendationText += "48m^2 Beohus (large)";
+                  } else {
+                    recommendationText += "42m^2 Beohus (medium)"; 
+                  }
+            
+                  // Display the recommendation
+                  document.getElementById('recommendationText').textContent = recommendationText;
+                  document.getElementById('recommendation').style.display = 'block';
+                }
+              </script>
+
+
+
+
+
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    </footer>
+</body>
+</html>
